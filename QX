@@ -118,11 +118,9 @@ static=TikTok, 延迟最低, img-url=https://raw.githubusercontent.com/Orz-3/min
 
 [filter_remote]
 //分流规则填这里
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingLite/AdvertisingLite.list, tag=AdvertisingLite, force-policy=广告拦截, update-interval=172800, opt-parser=true, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Spotify/Spotify.list, tag=Spotify, force-policy=Apple服务, update-interval=172800, opt-parser=true, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/QuantumultX/BiliBili/BiliBili.list, tag=哔哩哔哩, force-policy=BiliBili, update-interval=172800, opt-parser=true, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/release/rule/QuantumultX/Telegram/Telegram.list, tag=TG分流, force-policy=Telegram, update-interval=86400, opt-parser=true, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/Global.list, tag=国外网站, force-policy=延迟最低, update-interval=86400, opt-parser=true, enabled=false
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/Streaming.list, tag=国际视频, force-policy=延迟最低, update-interval=86400, opt-parser=true, enabled=false
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/AppStore.list, tag=AppStore, force-policy=Apple服务, update-interval=86400, opt-parser=true, enabled=true
 https://raw.githubusercontent.com/zwf234/rules/master/QuantumultX/shunt/Netease.list, tag=网易云音乐, force-policy=网易云音乐, update-interval=172800, opt-parser=true, enabled=true
