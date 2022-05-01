@@ -44,9 +44,6 @@ server=/*.xiaomi.com/119.29.29.29
 address=/mtalk.google.com/108.177.125.188
 
 [server_remote]
-https://paste.in/raw/gERwIk, tag=123456, update-interval=172800, opt-parser=true, enabled=false
-https://link.jscdn.cn/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3QvcyFBdW9feDR6U1kwXzZoX05IeVhYTG9EVl8zQnlkbkE_ZT00QVNYcDI, tag=白嫖的, update-interval=172800, opt-parser=true, enabled=false
-2E075F289769.snippet, tag=红杏出墙, update-interval=172800, opt-parser=false, enabled=true
 //远程机场订阅加这里
 //https://raw.githubusercontent.com/crossutility/Quantumult-X/master/server.txt#rename=[香港], tag=示范(请先导入自己订阅/节点), update-interval=86400, opt-parser=true,  img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Quantumult_X.png, enabled=true
 
