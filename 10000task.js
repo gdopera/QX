@@ -139,14 +139,14 @@ var unlimitUsed //通用差值与定向差值以及时间差值
 
 
         if(tile_unlimitTotal>1048576){tile_unlimitTotal=(tile_unlimitTotal/1048576).toFixed(2)+'GB'}
-        else{tile_unlimitTotal=(tile_unlimitTotal/1024).toFixed(0)+'MB'}//今日免流
+        else{tile_unlimitTotal=(tile_unlimitTotal/1024).toFixed(0)+'MB'}//今日流放
         if(tile_limitTotal>1048576){tile_limitTotal=(tile_limitTotal/1048576).toFixed(2)+'GB'}
-        else{tile_limitTotal=(tile_limitTotal/1024).toFixed(0)+'MB'}//今日跳点
+        else{tile_limitTotal=(tile_limitTotal/1024).toFixed(0)+'MB'}//今日流放
 
         if(tile_unlimitUsageTotal>1048576){tile_unlimitUsageTotal=(tile_unlimitUsageTotal/1048576).toFixed(2)+'GB'}
-        else{tile_unlimitUsageTotal=(tile_unlimitUsageTotal/1024).toFixed(0)+'MB'}//本月免流
+        else{tile_unlimitUsageTotal=(tile_unlimitUsageTotal/1024).toFixed(0)+'MB'}//本月流放
         if(tile_limitUsageTotal>1048576){tile_limitUsageTotal=(tile_limitUsageTotal/1048576).toFixed(2)+'GB'}
-        else{tile_limitUsageTotal=(tile_limitUsageTotal/1024).toFixed(0)+'MB'}//本月跳点
+        else{tile_limitUsageTotal=(tile_limitUsageTotal/1024).toFixed(0)+'MB'}//本月流放
 
 
         notice()//通知部分
@@ -158,7 +158,7 @@ var unlimitUsed //通用差值与定向差值以及时间差值
 
         body={
             title: `${brond}`,
-            content: `今日免流/跳点：${tile_unlimitTotal}/${tile_limitTotal}\n本月免流/跳点：${tile_unlimitUsageTotal}/${tile_limitUsageTotal}\n查询时间：${tile_hour}:${tile_minute}`,
+            content: `今日定向/流放：${tile_unlimitTotal}/${tile_limitTotal}\n本月定向/流放：${tile_unlimitUsageTotal}/${tile_limitUsageTotal}\n查询时间：${tile_hour}:${tile_minute}`,
             backgroundColor: "#0099FF",
             icon: "dial.max.fill",
         }
@@ -198,21 +198,15 @@ function query() {
 function notice()
 {
     brond=$.getdata("key_brond")
-    if(brond=="undefined")
+    if( brond=="undefined")
     {
-        for(var s=0;s+1<=i;s++)
-        {
-            var typeid = jsonData.RESULTDATASET[s].OFFERTYPE
-            if(typeid==11){var brondid=s}
-        }
-        brond = jsonData.RESULTDATASET[brondid].PRODUCTOFFNAME
-        $.setdata(String(brond),"key_brond")
+        $.setdata('boxjs里自己填名字',"key_brond")
     }
 
-    limitUsed=(limitChange/1024).toFixed(3) //跳点转成mb保留三位
+    limitUsed=(limitChange/1024).toFixed(3) //流放转成mb保留三位
 
-    if(unlimitChange<=1048576){unlimitUsed=(unlimitChange/1024).toFixed(2)+' MB ' }//免流转成mb保留两位
-    else{unlimitUsed=(unlimitChange/1048576).toFixed(2)+' GB '}//免流转换成gb
+    if(unlimitChange<=1048576){unlimitUsed=(unlimitChange/1024).toFixed(2)+' MB ' }//流放转成mb保留两位
+    else{unlimitUsed=(unlimitChange/1048576).toFixed(2)+' GB '}//流放转换成gb
 
     if(limitChange==0){limitUsed=0}
     if(unlimitChange==0){unlimitUsed=0+' MB '}
@@ -220,8 +214,8 @@ function notice()
     if(limitbalancetotal<=1048576){limitbalancetotal=(limitbalancetotal/1024).toFixed(2)+' MB' }//剩余转成gb保留两位
     else{limitbalancetotal=(limitbalancetotal/1048576).toFixed(2)+' GB' }//剩余转成gb保留两位
 
-    if(unlimitusagetotal<=1048576){unlimitusagetotal=(unlimitusagetotal/1024).toFixed(2)+' MB'	}//总免使用转化成gb保留两位小数
-    else{unlimitusagetotal=(unlimitusagetotal/1048576).toFixed(2)+' GB'}//总免使用转化成gb保留两位小数
+    if(unlimitusagetotal<=1048576){unlimitusagetotal=(unlimitusagetotal/1024).toFixed(2)+' MB'	}//总定向使用转化成gb保留两位小数
+    else{unlimitusagetotal=(unlimitusagetotal/1048576).toFixed(2)+' GB'}//总定向使用转化成gb保留两位小数
 
 
     if(ns=="true")//true时执行变化通知
@@ -231,12 +225,12 @@ function notice()
             $.setdata(String(thishours),"hourstimeStore")
             $.setdata(String(thisminutes),"minutestimeStore")
             title=brond+'  耗时:'+minutesused+'分钟'
-            body='免'+unlimitUsed+' 跳'+limitUsed+' MB'
-            body1='总免'+unlimitusagetotal+' 剩余'+limitbalancetotal
+            body='定向'+unlimitUsed+' 流放'+limitUsed+' MB'
+            body1='总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal
             $.msg(title, body, body1);
             console.log(brond+'  耗时:'+minutesused+'分钟')
-            console.log('免 '+unlimitUsed+'  跳 '+limitUsed+' MB')
-            console.log('总免'+unlimitusagetotal+' 剩余'+limitbalancetotal)
+            console.log('定向 '+unlimitUsed+'  流放 '+limitUsed+' MB')
+            console.log('总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal)
         }
     }
     else//默认定时通知
@@ -244,12 +238,12 @@ function notice()
         $.setdata(String(thishours),"hourstimeStore")
         $.setdata(String(thisminutes),"minutestimeStore")
         title=brond+'  耗时:'+minutesused+'分钟'
-        body='免'+unlimitUsed+' 跳'+limitUsed+' MB'
-        body1='总免'+unlimitusagetotal+' 剩余'+limitbalancetotal
+        body='定向'+unlimitUsed+' 流放'+limitUsed+' MB'
+        body1='总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal
         $.msg(title, body, body1);
         console.log(brond+'  耗时:'+minutesused+'分钟')
-        console.log('免 '+unlimitUsed+'  跳 '+limitUsed+' MB')
-        console.log('总免'+unlimitusagetotal+' 剩余'+limitbalancetotal)
+        console.log('定向 '+unlimitUsed+'  流放 '+limitUsed+' MB')
+        console.log('总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal)
 
     }
 }
