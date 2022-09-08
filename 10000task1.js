@@ -198,7 +198,7 @@ function query() {
 function notice()
 {
     brond=$.getdata("key_brond")
-    if(typeof brond=="undefined")
+    if( brond=="undefined")
     {
         $.setdata('boxjs里自己填名字',"key_brond")
     }
