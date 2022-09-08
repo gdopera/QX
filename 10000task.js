@@ -225,11 +225,11 @@ function notice()
             $.setdata(String(thishours),"hourstimeStore")
             $.setdata(String(thisminutes),"minutestimeStore")
             title=brond+'  耗时:'+minutesused+'分钟'
-            body='定向'+unlimitUsed+' 通用'+limitUsed+' MB'
+            body='触发定向'+unlimitUsed+' 触发通用'+limitUsed+' MB'
             body1='已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal
             $.msg(title, body, body1);
             console.log(brond+'  耗时:'+minutesused+'分钟')
-            console.log('定向 '+unlimitUsed+'  通用 '+limitUsed+' MB')
+            console.log('触发定向 '+unlimitUsed+'  触发通用 '+limitUsed+' MB')
             console.log('已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal)
         }
     }
@@ -238,11 +238,11 @@ function notice()
         $.setdata(String(thishours),"hourstimeStore")
         $.setdata(String(thisminutes),"minutestimeStore")
         title=brond+'  耗时:'+minutesused+'分钟'
-        body='定向'+unlimitUsed+' 通用'+limitUsed+' MB'
+        body='触发定向'+unlimitUsed+' 触发通用'+limitUsed+' MB'
         body1='已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal
         $.msg(title, body, body1);
         console.log(brond+'  耗时:'+minutesused+'分钟')
-        console.log('定向 '+unlimitUsed+'  通用 '+limitUsed+' MB')
+        console.log('触发定向 '+unlimitUsed+'  触发通用 '+limitUsed+' MB')
         console.log('已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal)
     }
 }
