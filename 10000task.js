@@ -158,7 +158,7 @@ var unlimitUsed //通用差值与定向差值以及时间差值
 
         body={
             title: `${brond}`,
-            content: `今日定向/流放：${tile_unlimitTotal}/${tile_limitTotal}\n本月定向/流放：${tile_unlimitUsageTotal}/${tile_limitUsageTotal}\n查询时间：${tile_hour}:${tile_minute}`,
+            content: `今日定向/通用：${tile_unlimitTotal}/${tile_limitTotal}\n本月定向/通用：${tile_unlimitUsageTotal}/${tile_limitUsageTotal}\n查询时间：${tile_hour}:${tile_minute}`,
             backgroundColor: "#0099FF",
             icon: "dial.max.fill",
         }
@@ -225,12 +225,12 @@ function notice()
             $.setdata(String(thishours),"hourstimeStore")
             $.setdata(String(thisminutes),"minutestimeStore")
             title=brond+'  耗时:'+minutesused+'分钟'
-            body='定向'+unlimitUsed+' 流放'+limitUsed+' MB'
-            body1='总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal
+            body='定向'+unlimitUsed+' 通用'+limitUsed+' MB'
+            body1='已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal
             $.msg(title, body, body1);
             console.log(brond+'  耗时:'+minutesused+'分钟')
-            console.log('定向 '+unlimitUsed+'  流放 '+limitUsed+' MB')
-            console.log('总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal)
+            console.log('定向 '+unlimitUsed+'  通用 '+limitUsed+' MB')
+            console.log('已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal)
         }
     }
     else//默认定时通知
@@ -238,13 +238,12 @@ function notice()
         $.setdata(String(thishours),"hourstimeStore")
         $.setdata(String(thisminutes),"minutestimeStore")
         title=brond+'  耗时:'+minutesused+'分钟'
-        body='定向'+unlimitUsed+' 流放'+limitUsed+' MB'
-        body1='总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal
+        body='定向'+unlimitUsed+' 通用'+limitUsed+' MB'
+        body1='已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal
         $.msg(title, body, body1);
         console.log(brond+'  耗时:'+minutesused+'分钟')
-        console.log('定向 '+unlimitUsed+'  流放 '+limitUsed+' MB')
-        console.log('总定向'+unlimitusagetotal+' 剩余'+limitbalancetotal)
-
+        console.log('定向 '+unlimitUsed+'  通用 '+limitUsed+' MB')
+        console.log('已用定向'+unlimitusagetotal+' 通用剩余'+limitbalancetotal)
     }
 }
 
