@@ -8,10 +8,10 @@ HOST, sugar.zhihu.com, reject
 USER-AGENT, AVOS*, reject
 # > B站自动换区
 ip-cidr, 203.107.1.1/24, reject
-ip-cidr, 10.0.0.0/8, direct
-ip-cidr, 127.0.0.0/8, direct
-ip-cidr, 172.16.0.0/12, direct
-ip-cidr, 192.168.0.0/16, direct
-ip-cidr, 224.0.0.0/24, direct
-ip-cidr, 182.254.116.0/24, direct
-ip6-cidr, 2001:4860:4860::8888/32, direct
+ip-cidr, 10.0.0.0/8, 电信移动
+ip-cidr, 127.0.0.0/8, 电信移动
+ip-cidr, 172.16.0.0/12, 电信移动
+ip-cidr, 192.168.0.0/16, 电信移动
+ip-cidr, 224.0.0.0/24, 电信移动
+ip-cidr, 182.254.116.0/24, 电信移动
+ip6-cidr, 2001:4860:4860::8888/32, 电信移动
