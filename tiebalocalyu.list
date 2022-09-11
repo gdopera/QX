@@ -1,4 +1,5 @@
 # > 知乎AD屏蔽,以下规则请放置在filter_local最顶部
+
 DOMAIN, 118.89.204.198, reject
 DOMAIN-KEYWORD, 118.89.204.198, reject
 IP-CIDR, 118.89.204.198/32, reject
@@ -9,5 +10,12 @@ USER-AGENT, AVOS*, reject
 # > B站自动换区
 ip-cidr, 203.107.1.1/24, reject
 
+ip-cidr, 10.0.0.0/8, reject
+ip-cidr, 127.0.0.0/8, reject
+ip-cidr, 172.16.0.0/12, reject
+ip-cidr, 192.168.0.0/16, reject
+ip-cidr, 224.0.0.0/24, reject
+ip-cidr, 182.254.116.0/24, reject
+
 # 贴吧屏蔽域名dns查询
-IP-CIDR,180.76.76.200/32,reject
+IP-CIDR,180.76.76.200/32, reject
