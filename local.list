@@ -9,11 +9,8 @@ HOST, sugar.zhihu.com, reject
 USER-AGENT, AVOS*, reject
 # > B站自动换区
 ip-cidr, 203.107.1.1/24, reject
-
 # 贴吧屏蔽域名dns查询
 IP-CIDR,180.76.76.200/32, reject
-DOMAIN-KEYWORD, apple.com, 电信移动
-DOMAIN-KEYWORD, icloud.com, 电信移动
 ip-cidr, 10.0.0.0/8, 电信移动
 ip-cidr, 127.0.0.0/8, 电信移动
 ip-cidr, 172.16.0.0/12, 电信移动
