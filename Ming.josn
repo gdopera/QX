@@ -1,5 +1,5 @@
 {
-    "name":"UI 脚本合集",
+    "Ming":"UI 脚本合集",
     "description":"UI-Interaction Script Gallery by Shawn",
     "task":[
         "event-interaction https://raw.githubusercontent.com/gdopera/QX/main/TieB.js#cdn=1, tag=百度签到, img-url=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba.png, enabled=true",
