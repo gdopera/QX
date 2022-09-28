@@ -11,11 +11,4 @@ USER-AGENT, AVOS*, reject
 ip-cidr, 203.107.1.1/24, reject
 # 贴吧屏蔽域名dns查询
 IP-CIDR,180.76.76.200/32, reject
-host-suffix, local, 全球直连
-ip-cidr, 10.0.0.0/8, 全球直连
-ip-cidr, 127.0.0.0/8, 全球直连
-ip-cidr, 172.16.0.0/12, 全球直连
-ip-cidr, 192.168.0.0/16, 全球直连
-ip-cidr, 224.0.0.0/24, 全球直连
-ip-cidr, 182.254.116.0/24, 全球直连
 geoip,cn, 全球直连
