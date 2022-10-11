@@ -2328,7 +2328,7 @@ function get_emoji(emojip, sname) {
   }
     str1 = JSON.stringify(Lmoji)
     aa = JSON.parse(str1)
-    bb = JSON.parse(str1.replace(/🇨🇳/g, " 🇨🇳"))
+    bb = JSON.parse(str1.replace(/🇲🇴/g, " 🇨🇳"))
     var cnt = emojip ==1? aa:bb;
     var flag = 0;
     for (var key in cnt) {
@@ -2341,7 +2341,7 @@ function get_emoji(emojip, sname) {
             }
         }
     }
-    if (flag == 0) { return ["🇨🇳 " + sname.replace(/[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g, "").trim(), "🇨🇳"] }
+    if (flag == 0) { return ["🏴‍☠️ " + sname.replace(/[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g, "").trim(), "🏴‍☠️"] }
 }
 
 //emoji 处理
