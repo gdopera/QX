@@ -1,5 +1,5 @@
-const a = ''; //账号
-const b = ''; //密码
+const a = ''; //dgwidw
+const b = ''; //Ming525427
 //获取请求对象
 var person = new Person();
 
