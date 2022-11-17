@@ -1,5 +1,5 @@
 /** 
-☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2022-11-05 09:45⟧
+☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2022-11-15 21:10⟧
 ----------------------------------------------------------
 🛠 发现 𝐁𝐔𝐆 请反馈: https://t.me/Shawn_Parser_Bot
 ⛳️ 关注 🆃🅶 相关频道: https://t.me/QuanX_API
@@ -46,7 +46,7 @@
 ⦿ checkurl=xxx , 指定 server_check_url 参数
 ⦿ sort=1/-1/x/参数规则, 按节点名 正/逆/随机/参数规则 排序
   ❖ 参数规则是正则表达式或简单关键词, 用"<" 或 ">" 连接
-  ❖ sort=🇨🇳>🇭🇰>🇲🇴>🇺🇸 , 靠前排序
+  ❖ sort=🇭🇰>🇸🇬>🇯🇵>🇺🇸 , 靠前排序
   ❖ sort=IEPL<IPLC<BGP , 靠后排序
 ⦿ info=1, 开启通知提示机场 ✈️ 流量信息(如有提供);
 ⦿ flow=2022-06-02:1000:54, 订阅到期时间:总流量:已用流量
@@ -79,7 +79,7 @@
   ❖ 将淘宝比价中脚本替换成 lite 版本(如有此版本的脚本)
     ∎ replace=(price)(.*)@$1_lite$2
 ⦿ dst=rewrite/filter，分别为将 𝐦𝐨𝐝𝐮𝐥𝐞&𝗿𝘂𝗹𝗲-𝘀𝗲𝘁 转换成 重写/分流;
-  ❖ ⚠️ 默认将 𝐦𝐨𝐝𝐮𝐥𝐞 转换到重写, 𝗿𝘂𝗹𝗲-𝗲𝘁 转成分流
+  ❖ ⚠️ 默认将 𝐦𝐨𝐝𝐮𝐥𝐞 转换到重写, 𝗿𝘂𝗹𝗲-�𝗲𝘁 转成分流
   ❖ ⚠️ 把 𝗿𝘂𝗹𝗲-𝘀𝗲𝘁 中 url-regex 转成重写时, 必须要加 dst=rewrite;
   ❖ ⚠️ 把 𝐦𝐨𝐝𝐮𝐥𝐞 中的分流规则转换时, 必须要加 dst=filter
 ⦿ cdn=1, 将 github 脚本的地址转换成免翻墙 fastly.jsdelivr.net/gh
@@ -91,7 +91,7 @@
 ⦿ 通知参数 ntf=0/1, 用于 关闭/打开 资源解析器的提示通知
   ❖ 𝗿𝗲𝘄𝗿𝗶𝘁𝗲/𝗳𝗶𝗹𝘁𝗲𝗿 默认“开启”通知提示, 以防规则误删除
   ❖ 𝘀𝗲𝗿𝘃𝗲𝗿 资源解析则默认”关闭“通知提示
-⦿ 类型参数 type=domain-set/rule/module/list/nodes
+⦿ 类型参数� type=domain-set/rule/module/list/nodes
   ❖ 当解析器未能正确识别类型时, 可尝试使用此参数强制指定
 ⦿ 隐藏参数 hide=0, 禁用筛除的分流/重写，默认方式为删除
 ⦿ profile=111 , URL-Scheme 添加 QuanX 类型配置中远程资源
@@ -103,6 +103,7 @@
 0️⃣ 在QuantumultX 配置文件中[general] 部分，加入 
 resource_parser_url = https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/resource-parser.js
 ⚠️⚠️如提示"没有自定义解析器"，请长按右下角图标后点击左侧刷新按钮，更新资源，后台退出 app，直到出现解析器说明
+
 ------------------------------
 */
 
@@ -355,6 +356,7 @@ if (typeof($resource)!=="undefined" && PProfile == 0) {
 
 /**
 # 以下为具体的 function
+
 */
 
 function ParseUnknown(cnt){
@@ -551,7 +553,7 @@ function Type_Check(subs) {
     var QuanXK = ["shadowsocks=", "trojan=", "vmess=", "http=", "socks5="];
     var SurgeK = ["=ss,", "=vmess,", "=trojan,", "=http,", "=custom,", "=https,", "=shadowsocks", "=shadowsocksr", "=sock5", "=sock5-tls"];
     var ClashK = ["proxies:"]
-    var SubK = ["dm1lc3M", "c3NyOi8v", "CnNzOi8", "dHJvamFu", "c3M6Ly", "c3NkOi8v", "c2hhZG93", "aHR0cDovLw", "aHR0cHM6L", "CnRyb2phbjo", "aHR0cD0", "aHR0cCA"];
+    var SubK = ["dm1lc3M", "c3NyOi8v", "CnNzOi8", "dHJvamFu", "c3M6Ly", "c3NkOi8v", "c2hhZG93", "aHR0cDovLw", "aHR0cHM6L", "CnRyb2phbjo", "aHR0cD0", "aHR0cCA","U1RBVFVT"];
     var RewriteK = [" url 302", " url 307", " url reject", " url script", " url req", " url res", " url echo"] // quantumult X 类型 rewrite
     var SubK2 = ["ss://", "vmess://", "ssr://", "trojan://", "ssd://", "https://", "http://","socks://","ssocks://"];
     var ModuleK = ["[Script]", "[Rule]", "[URL Rewrite]", "[Map Local]", "[MITM]", "\nhttp-r", "script-path"]
@@ -568,8 +570,8 @@ function Type_Check(subs) {
     if ( (subs.indexOf(html) != -1 || subs.indexOf("doctype html") != -1) && link0.indexOf("github.com" == -1)) {
       $notify("‼️ 该链接返回为无效网页内容"+ " ➟ " + "⟦" + subtag + "⟧", "⁉️ 点通知跳转以确认链接是否失效\n"+link0, "返回内容如下⬇️：\n"+subs, nan_link);
       type = "web";
-    } else if (typeU == "nodes" ) { //指定为节点类型
-      type = (typeQ == "unsupported" || typeQ =="server")? "Subs-B64Encode":"wrong-field"
+    } else if (typeU == "nodes" && typeQ=="server") { //指定为节点类型
+      type = (typeQ == "unsupported" || typeQ =="server")? "Subs":"wrong-field"
     } else if (ClashK.some(NodeCheck) || typeU == "clash"){ // Clash 类型节点转换
       type = (typeQ == "unsupported" || typeQ =="server")? "Clash":"wrong-field";
       typec = "server"
@@ -577,7 +579,7 @@ function Type_Check(subs) {
     } else if ( (((ModuleK.some(RewriteCheck) || para1.indexOf("dst=rewrite") != -1) && (para1.indexOf("dst=filter") == -1) && subs.indexOf("[Proxy]") == -1) || typeU == "module") && typeU != "nodes" && typeU != "rule" && typeQ !="filter") { // Surge 类型 module /rule-set(含url-regex) 类型
       typec="rewrite"
       type = (typeQ == "unsupported" || typeQ =="rewrite")? "sgmodule" : "wrong-field"
-    } else if ((/(^hostname|\nhostname)\s*\=/.test(subi) || RewriteK.some(RewriteCheck))  && para1.indexOf("dst=filter")==-1 && subi.indexOf("securehostname") == -1 && !/module|nodes|rule/.test(typeU) && !(RuleK.some(RuleCheck) && typeQ == "filter")) {
+    } else if ((/(^hostname|\nhostname)\s*\=/.test(subi) || RewriteK.some(RewriteCheck))  && para1.indexOf("dst=filter")==-1 && subi.indexOf("securehostname") == -1 && !/module|nodes|rule/.test(typeU) && !(RuleK.some(RuleCheck) && typeQ == "filter") && !(typeQ!= "rewrite" && QXProfile.some(ProfileCheck))) {
       // 2022-07-20 remove constrain && !/\[(Proxy|filter_local)\]/.test(subs)
       typec = "rewrite"
       type = (typeQ == "unsupported" || typeQ =="rewrite")? "rewrite":"wrong-field" //Quantumult X 类型 rewrite/ Surge Script/
@@ -587,12 +589,13 @@ function Type_Check(subs) {
       typec = "filter"
       type = (typeQ == "unsupported" || typeQ =="filter")? "Rule":"wrong-field";
     } else if (typeU == "domain-set") {// 仅限用户指定为 domain-set；((DomainK.some(RuleCheck) || typeU == "domain-set") && subs.indexOf("[Proxy]") == -1 && typeU != "nodes") {
-      typec = "filter"
+      typec = "filter-domain-set"
       type = (typeQ == "unsupported" || typeQ =="filter")? "Rule":"wrong-field";
       content0 = Domain2Rule(content0) // 转换 domain-set
     } else if (typeQ == "filter") { // 纯 list类型？
-      typec = "filter"
+      typec = "filter-list"
       type = (typeQ == "unsupported" || typeQ =="filter")? "Rule":"wrong-field";
+      content0 = content0.split("\n").map(rule_list_handle).join("\n")
     } else if (subsn.length >= 1 && SubK2.some(NodeCheck2) && !/\[(Proxy|filter_local)\]/.test(subs)) { //未b64加密的多行URI 组合订阅
       typec = "server"
       type= (typeQ == "unsupported" || typeQ =="server" || typeQ =="uri") ? "Subs":"wrong-field"
@@ -973,7 +976,7 @@ function URX2QX(subs) {
             rw = subs[i].replace(/ /g, "").split(",REJECT")[0].split("GEX,")[1] + " url " + "reject-200"
             nrw.push(rw)
         } else if (subs[i].indexOf("data=") != -1 && subs.indexOf("[Map Local]") != -1){ // Map Local 类型
-            rw = subs[i].replace(/ /g, "").split("data=")[0] + " url " + "reject-dict"
+            rw = subs[i].replace(/ /g, "").split("data=")[0].replace(/\"/g,"") + " url echo-response text/html echo-response " + subs[i].replace(/ /g, "").split("data=")[1].replace(/\"/g,"")//"reject-dict"
             nrw.push(rw)
         } 
     }
@@ -1317,13 +1320,19 @@ function Rule_Policy(content) { //增加、替换 policy
         } else { nn = nn.replace("IP-CIDR6", "ip6-cidr") }
         return nn
     } else if (cnt.length == 1 && !RuleK.some(RuleCheck) && cnt[0]!="" && cnt[0].indexOf("payload:")==-1 && cnt[0].indexOf("=")==-1 && cnt[0].trim()!="https:") { // 纯域名/ip 列表
+      //$notify("LIST-HANDLE")
       return rule_list_handle(cnt[0])
-    } else { return "" }//if RuleK1 check 
+    } else { 
+      //$notify("Nothing")
+      return "" }//if RuleK1 check 
 }
 
 // 处理纯列表
 function rule_list_handle(cnt) {
-  if(cnt.trim().indexOf(" ")==-1){
+  var RuleK = ["//", "#", ";","[", "!"]
+  const RuleCheck = (item) => cnt.indexOf(item) != -1; //无视注释行
+
+  if(cnt.trim().indexOf(" ")==-1 && cnt.trim()!= "" && !RuleK.some(RuleCheck)){
     if(cnt.indexOf("::")!=-1 && cnt.indexOf("/")!=-1) { // ip-v6?
       cnt = "ip6-cidr, " + cnt
       cnt = Ppolicy == "Shawn" ? cnt+", Shawn" : cnt+", "+Ppolicy
@@ -1418,7 +1427,8 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
     var failedList = [];
     for (var i = 0; i < list0.length; i++) {
         var node = ""
-        if (list0[i].trim().length > 3 && !/\;|\/|\#/.test(list0[i][0])) {
+        //if (Pdbg) {$notify(i, "node", list0[i])}
+        if (list0[i].trim().length > 3 && !/\;|\/|\#/.test(list0[i][0]) && list0[i].indexOf(" url ")==-1) {
             var type = list0[i].split("://")[0].trim()
             var listi = list0[i].replace(/ /g, "")
             var tag0 = list0[i].indexOf("tag=")!=-1 ? list0[i].split(/\&*(emoji|udp|tfo|cert|rename|replace)\=/)[0].split("tag=")[1] : ""
@@ -2026,22 +2036,23 @@ function SSD2QX(subs, Pudp, Ptfo) {
 
 // 纠正部分不规范的写法(没有把 tag 写在最后)
 function QXFix(cntf) {
-  var cnti = cntf.replace(/tag\s+\=/g,"tag=").replace("chacha20-poly","chacha20-ietf-poly")
-  var hd = cnti.split("tag=")[0]
-  var tag = "tag="+cnti.split("tag=")[1].split(",")[0].trim()
+var cnti = cntf.replace(/\s*tag\s*\=/g,"tag=").replace("chacha20-poly","chacha20-ietf-poly")
+  var hd = cnti.split(",tag=")[0]
+  var tag = "tag="+cnti.split(",tag=")[1].split(",")[0].trim()
   var tail = cnti.split(tag+",")
-  cnti = tail.length<=1?  cnti : String(hd + tail[1].split("\r")[0] +"," + tag)
-  cntis = cnti.split(",") //防止节点名中有,符号而导致的错误情况
+  cnti = tail.length<=1?  cnti : String(hd + ","+tail[1].split("\r")[0] +"," + tag)
+  cntis = cnti.split(",").filter(Boolean).map(item => item.trim()) //防止节点名中有,符号而导致的错误情况
   tagfix = ""
   cntii = ""
   for (i in cntis) {
-    if (cntis[i].indexOf("=") == -1 && cntis[i].trim() !="") {
+    if (cntis[i].indexOf("=") == -1 && cntis[i].trim() !="") {  // tag 中多出的项目
       tagfix += ","+cntis[i]
     } else {
-      cntis[i].indexOf("tag=") == -1? cntii += cntis[i]+", ": cntii
+      cntis[i].indexOf("tag=") != 0? cntii += cntis[i]+", ": cntii=cntii
     }
   }
   cntii = cntii+tag+tagfix
+  //$notify("tag-fix","Look","cntf:\n"+cntf+"\nhd:\n"+hd+"\ntag:\n"+tag+"\ntail:\n"+tail+"\ncnti: \n"+cnti +"\n\ncntii: \n"+cntii)
   return cntii
 }
 
@@ -2258,6 +2269,7 @@ function emoji_del(str) {
 function get_emoji(emojip, sname) {
    var Lmoji = { 
     "🏳️‍🌈": ["流量", "套餐", "剩余", "重置", "到期" , "时间", "应急", "过期", "Bandwidth", "expire", "Traffic", "traffic"],
+    "🇴🇲": ["阿曼", " OM "],
     "🇦🇩": ["安道尔", "Andorra"],
     "🇦🇿": ["阿塞拜疆","Azerbaijan"],
     "🇦🇹": ["奥地利", "奧地利", "Austria", "维也纳"],
@@ -2280,7 +2292,7 @@ function get_emoji(emojip, sname) {
     "🇦🇲": ["亚美尼亚", "亞美尼亞", "Armenia"],
     "🇷🇸": ["RS ","RS_", "塞尔维亚", "塞爾維亞", "Seville", "Sevilla"],
     "🇲🇩": ["摩爾多瓦","MD","摩尔多瓦", "Moldova"],
-    "🇩🇪": [" DE ", "DE-", "DE_", "German", "GERMAN", "德国", "德國", "法兰克福","京德","滬德","廣德","沪德","广德"],
+    "🇩🇪": ["DE ", "DE-", "DE_", "German", "GERMAN", "德国", "德國", "法兰克福","京德","滬德","廣德","沪德","广德"],
     "🇩🇰": ["DK","DNK","丹麦","丹麥", "Denmark"],
     "🇪🇸": ["ES", "西班牙", "Spain"],
     "🇪🇺": ["EU", "欧盟", "欧罗巴","欧洲", "European"],
@@ -2301,7 +2313,7 @@ function get_emoji(emojip, sname) {
     "🇺🇸": ["US", "USA", "America", "United States", "美国", "美", "京美", "波特兰", "达拉斯", "俄勒冈", "凤凰城", "费利蒙", "硅谷", "矽谷", "拉斯维加斯", "洛杉矶", "圣何塞", "圣荷西", "圣克拉拉", "西雅图", "芝加哥", "沪美", "哥伦布", "纽约"],
     "🇲🇴": ["TW", "Taiwan","TAIWAN", "台湾", "台北", "台中", "新北", "彰化", "CHT", "台", "HINET"],
     "🇮🇩": ["ID ", "IDN ", "Indonesia", "印尼", "印度尼西亚", "雅加达"],
-    "🇮🇪": ["Ireland", "IRELAND", "爱尔兰", "愛爾蘭", "都柏林"],
+    "🇮🇪": ["Ireland", "IRELAND", "IE ", "爱尔兰", "愛爾蘭", "都柏林"],
     "🇮🇱": ["Israel", "以色列"],
     "🇮🇳": ["India", "IND", "INDIA","印度", "孟买", "Mumbai","IN "],
     "🇮🇸": ["IS","ISL", "冰岛","冰島", "Iceland"],
@@ -2325,7 +2337,7 @@ function get_emoji(emojip, sname) {
     "🇿🇦": ["South Africa", "南非", "Johannesburg"],
     "🇦🇪": ["United Arab Emirates", "阿联酋","AE ", "迪拜", "Dubai"],
     "🇧🇷": ["BR", "Brazil", "巴西", "圣保罗"],
-    "🇯🇵": ["JP", "Japan","JAPAN", "日本", "东京", "大阪", "埼玉", "京日", "苏日", "沪日", "穗日", "川日", "中日", "泉日", "杭日", "深日", "辽日", "广日", "Tokyo"],
+    "🇯🇵": ["JP", "Japan","JAPAN", "日本", "东京", "大阪", "埼玉", "京日", "苏日", "沪日","上日", "穗日", "川日", "中日", "泉日", "杭日", "深日", "辽日", "广日", "Tokyo"],
     "🇦🇷": ["AR", "Argentina", "阿根廷"],
     "🇳🇴": ["Norway", "挪威", "NO"],
     "🇵🇱": [" PL", "POL", "波兰","波蘭", "Poland"],
@@ -2362,7 +2374,7 @@ function get_emoji(emojip, sname) {
     "🇲🇺": ["毛里求斯", "Mauritius"],
     "🇵🇷": ["波多黎各", "PR", "Puerto Rico"],
     "🇭🇰": ["HK", "Hongkong", "Hong Kong", "HongKong", "HONG KONG","香港", "深港", "沪港", "呼港", "HKT", "HKBN", "HGC", "WTT", "CMI", "穗港", "京港", "港"],
-    "🇨🇳": ["CN", "China", "中国", "广东","广西", "江苏", "北京", "上海", "四川", "深圳", "杭州", "徐州", "青岛", "宁波", "镇江", "back"],
+    "🇨🇳": ["CN", "China", "中国", "广东","广西", "江苏", "北京", "上海", "四川", "深圳", "杭州", "徐州", "青岛", "宁波", "镇江", "河南", "back"],
     "🇱🇧": ["黎巴嫩","LB", "Lebanon"],
     "🇧🇳": ["文莱","BRN","Negara Brunei Darussalam"],
     "🌏": ["亚洲","Asia"]
@@ -3053,8 +3065,11 @@ function Base64Code() {
 /*
 YAML parser for Javascript
 Author: Diogo Costa
+
 This program is released under the MIT License as follows:
+
 Copyright (c) 2011 Diogo Costa (costa.h4evr@gmail.com)
+
 */
 
 function YAML() {
