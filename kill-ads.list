@@ -1,0 +1,14 @@
+# > 知乎AD屏蔽,以下规则请放置在filter_local最顶部
+DOMAIN,118.89.204.198
+DOMAIN-KEYWORD,118.89.204.198
+IP-CIDR,118.89.204.198/32
+DOMAIN,appcloud2.in.zhihu.com
+HOST,mqtt.zhihu.com
+HOST,sugar.zhihu.com
+USER-AGENT,AVOS*
+
+# > B站自动换区
+ip-cidr,203.107.1.1/24
+
+# 贴吧屏蔽域名dns查询
+IP-CIDR,180.76.76.200/32
