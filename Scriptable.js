@@ -213,7 +213,7 @@ function getmediumwidget(Query,str,str1) {
   text.addSpacer(2)
   w.addSpacer(4)
   const titlew = text.addText(str)
-  text.addSpacer( m + 0.6*h+47)
+  text.addSpacer( m + 0.6*h+46.8)
   const titlew1 = text.addText(str1)
   titlew.textColor = DynamicText
   titlew.font = Font.boldSystemFont(h/4.6)
