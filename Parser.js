@@ -1,5 +1,5 @@
 /** 
-☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2022-12-10 09:30⟧
+☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2022-12-15 11:30⟧
 ----------------------------------------------------------
 🛠 发现 𝐁𝐔𝐆 请反馈: https://t.me/Shawn_Parser_Bot
 ⛳️ 关注 🆃🅶 相关频道: https://t.me/QuanX_API
@@ -46,7 +46,7 @@
 ⦿ checkurl=xxx , 指定 server_check_url 参数
 ⦿ sort=1/-1/x/参数规则, 按节点名 正/逆/随机/参数规则 排序
   ❖ 参数规则是正则表达式或简单关键词, 用"<" 或 ">" 连接
-  ❖ sort=🇭🇰>🇸🇬>🇲🇴>🇺🇸 , 靠前排序
+  ❖ sort=🇭🇰>🇸🇬>🇯🇵>🇺🇸 , 靠前排序
   ❖ sort=IEPL<IPLC<BGP , 靠后排序
 ⦿ info=1, 开启通知提示机场 ✈️ 流量信息(如有提供);
 ⦿ flow=2022-06-02:1000:54, 订阅到期时间:总流量:已用流量
@@ -1216,13 +1216,16 @@ function Rule_Handle(subs, Pout, Pin) {
     if (Tout != "" && Tout != null) { // 有 out 参数时
         var dlist = [];
         for (var i = 0; i < cnt.length; i++) {
-            cc = cnt[i].replace(/^\s*\-\s/g,"").trim()
+            cc = cnt[i].replace(/^\s*\-\s/g,"").replace(/\"|\'/g,"").trim()
+            //$notify("out ing", Tout, cc)
             const exclude = (item) => cc.indexOf(item) != -1; // 删除项
             const RuleCheck = (item) => cc.toLowerCase().indexOf(item) != -1; //规则检查
             const CommentCheck = (item) => cc.toLowerCase().indexOf(item) == 0; //无视注释行
-            if (Tout.some(exclude) && !RuleK.some(CommentCheck) && RuleK2.some(RuleCheck)) {
+            if (Tout.some(exclude) && !RuleK.some(CommentCheck) ) {
+              // 2022-12-15 删除 && RuleK2.some(RuleCheck) 判断条件，以免 list/provider 中参数上生效
                 dlist.push("-" + Rule_Policy(cc)) // 注释掉条目
-            } else if (!RuleK.some(CommentCheck) && cc && RuleK2.some(RuleCheck)) { //if Pout.some, 不操作注释项，不操作不识别规则项目
+            } else if (!RuleK.some(CommentCheck) && cc ) { //if Pout.some, 不操作注释项，不操作不识别规则项目
+              // 2022-12-15 删除 && RuleK2.some(RuleCheck) 判断条件，以免 list/provider 中参数上生效
                 dd = Rule_Policy(cc);
                 if (Tin != "" && Tin != null) {
                     const include = (item) => dd.indexOf(item) != -1; // 保留项
@@ -1443,7 +1446,6 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
             const NodeCheck = (item) => listi.toLowerCase().indexOf(item) != -1;
             const NodeCheck1 = (item) => listi.toLowerCase().indexOf(item) == 0;
             try {
-
                 if (type == "vmess" && (list0[i].indexOf("remark=") == -1 && list0[i].indexOf("remarks=") == -1)) {
                     var bnode = Base64.decode(list0[i].split("vmess://")[1])
                     if (bnode.indexOf("over-tls=") == -1) { //v2rayN
@@ -1488,6 +1490,8 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
                     node = QX_TLS(Surge2QX(list0[i])[0], Pcert0, PTls13)
                 } else if (LoonK.some(NodeCheck)) {
                     node = Loon2QX(list0[i])
+                } else if (type == "vless") {
+                  $notify("⚠️ Quantumult X 暂未支持 Vless 类型节点 ⚠️")
                 }
             } catch (e) {
                 failedList.push(`<<<\nContent: ${list0[i]}\nError: ${e}`)
@@ -2340,7 +2344,7 @@ function get_emoji(emojip, sname) {
     "🇷🇺": ["RU ","RU-", "RU_", "RUS", "Russia", "俄罗斯", "毛子", "俄国", "俄羅斯", "伯力", "莫斯科", "圣彼得堡", "西伯利亚", "新西伯利亚", "京俄", "杭俄","廣俄","滬俄","广俄","沪俄"],
     "🇸🇬": ["SG", "Singapore","SINGAPORE", "新加坡", "狮城", "沪新", "京新", "泉新", "穗新", "深新", "杭新", "广新","廣新","滬新"],
     "🇺🇸": ["US", "USA", "America", "United States", "美国", "美", "京美", "波特兰", "达拉斯", "俄勒冈", "凤凰城", "费利蒙", "硅谷", "矽谷", "拉斯维加斯", "洛杉矶", "圣何塞", "圣荷西", "圣克拉拉", "西雅图", "芝加哥", "沪美", "哥伦布", "纽约"],
-    "🇲🇴": ["TW", "Taiwan","TAIWAN", "台湾", "台北", "台中", "新北", "彰化", "CHT", "台", "HINET"],
+    "🇹🇼": ["TW", "Taiwan","TAIWAN", "台湾", "台北", "台中", "新北", "彰化", "CHT", "台", "HINET"],
     "🇮🇩": ["ID ", "IDN ", "Indonesia", "印尼", "印度尼西亚", "雅加达"],
     "🇮🇪": ["Ireland", "IRELAND", "IE ", "爱尔兰", "愛爾蘭", "都柏林"],
     "🇮🇱": ["Israel", "以色列"],
@@ -2352,14 +2356,14 @@ function get_emoji(emojip, sname) {
     "🇱🇺": ["卢森堡", "LU ", "Luxembourg"],
     "🇱🇻": ["Latvia", "Latvija", "拉脱维亚"],
     "🇧🇩": ["孟加拉", "Bengal"],
-    "🇲🇽️": ["MEX", "MX", "墨西哥", "Mexico", "MEXICO"],
-    "🇲🇾": ["MY", "Malaysia","MALAYSIA", "马来西亚", "马来", "馬來", "大马", "大馬", "馬來西亞", "吉隆坡"],
-    "🇳🇱": ["NL", "Netherlands", "荷兰", "荷蘭", "尼德蘭", "阿姆斯特丹"],
-    "🇵🇭": ["PH", "Philippines", "菲律宾", "菲律賓"],
+    "🇲🇽️": [" MEX", "MX", "墨西哥", "Mexico", "MEXICO"],
+    "🇲🇾": [" MY", "Malaysia","MALAYSIA", "马来西亚", "马来", "馬來", "大马", "大馬", "馬來西亞", "吉隆坡"],
+    "🇳🇱": [" NL", "Netherlands", "荷兰", "荷蘭", "尼德蘭", "阿姆斯特丹"],
+    "🇵🇭": [" PH", "Philippines", "菲律宾", "菲律賓"],
     "🇷🇴": [" RO ", "罗马尼亚", "Rumania"],
     "🇸🇦": ["沙特", "利雅得", "Saudi Arabia", "Saudi"],
     "🇸🇪": ["SE", "Sweden","瑞典"],
-    "🇹🇭": ["TH", "Thailand", "泰国", "泰國", "曼谷"],
+    "🇹🇭": [" TH", "Thailand", "泰国", "泰國", "曼谷"],
     "🇹🇷": ["TR ","TR-", "TR_", "TUR", "Turkey", "土耳其", "伊斯坦布尔"],
     "🇻🇳": ["VN", "越南", "胡志明市", "Vietnam"],
     "🇮🇹": ["Italy", " IT ", "Nachash", "意大利", "米兰", "義大利"],
@@ -2410,7 +2414,7 @@ function get_emoji(emojip, sname) {
   }
     str1 = JSON.stringify(Lmoji)
     aa = JSON.parse(str1)
-    bb = JSON.parse(str1.replace(/🇲🇴/g, " 🇲🇴"))
+    bb = JSON.parse(str1.replace(/🇹🇼/g, " 🇨🇳"))
     var cnt = emojip ==1? aa:bb;
     var flag = 0;
     for (var key in cnt) {
@@ -2423,7 +2427,7 @@ function get_emoji(emojip, sname) {
             }
         }
     }
-    if (flag == 0) { return ["🇨🇳 " + sname.replace(/[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g, "").trim(), "🇨🇳"] }
+    if (flag == 0) { return ["🏴‍☠️ " + sname.replace(/[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g, "").trim(), "🏴‍☠️"] }
 }
 
 //emoji 处理
@@ -2788,6 +2792,7 @@ function CSSR2QX(cnt) {
   tfo = cnt.tfo ? "fast-open=true" : "fast-open=false"
   prot = "ssr-protocol=" + cnt.protocol
   ohost=""
+  ppara=""
   if(cnt["protocolparam"]) {
     cnt["protocol-param"] = cnt["protocolparam"]
   }
