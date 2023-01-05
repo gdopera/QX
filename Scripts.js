@@ -170,7 +170,7 @@ async function AsyncJs(){
   if (fm.isFileStoredIniCloud(module.filename)) {
     fm = FileManager.iCloud();
   }
-  const url = 'https://raw.githubusercontent.com/QGCliveDavis/Module/main/Scriptable/Telecom_Script.js';
+  const url = 'https://raw.githubusercontent.com/gdopera/QX/main/Scripts.js';
   const request = new Request(url);
   try {
     const code = await request.loadString();
