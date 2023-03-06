@@ -1,3 +1,14 @@
+HOST-KEYWORD,weather-edge.apple.com
+HOST-KEYWORD,weather-adge.apple.com
+HOST-SUFFIX,weather-data.apple.com
+HOST-SUFFIX,weather-map.apple.com
+HOST-SUFFIX,weather-analytics-events.apple.com
+HOST-KEYWORD,buy.itunes.apple.com
+HOST-KEYWORD,icloud.com
+HOST-KEYWORD,api.smoot.apple.com
+HOST-KEYWORD,api.smoot.apple.cn
+HOST,init.ess.apple.com
+HOST-KEYWORD,push.apple.com
 DOMAIN-SUFFIX,a1.mzstatic.com
 DOMAIN-SUFFIX,a2.mzstatic.com
 DOMAIN-SUFFIX,a3.mzstatic.com
