@@ -1,5 +1,5 @@
 /** 
-☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2023-03-13 16:00⟧
+☑️ 资源解析器 ©𝐒𝐡𝐚𝐰𝐧  ⟦2023-03-23 12:00⟧
 ----------------------------------------------------------
 🛠 发现 𝐁𝐔𝐆 请反馈: https://t.me/Shawn_Parser_Bot
 ⛳️ 关注 🆃🅶 相关频道: https://t.me/QuanX_API
@@ -615,6 +615,9 @@ function Type_Check(subs) {
       typec = "filter-list"
       type = (typeQ == "unsupported" || typeQ =="filter")? "Rule":"wrong-field";
       content0 = content0.split("\n").map(rule_list_handle).join("\n")
+    } else if (subi.indexOf("sub://") == 0) { // sub:// 类型
+      typec = "sub-http"
+      type = "sub-http"
     } else if (typeQ == "filter" && subs.indexOf("payload:")!=-1) { // clash-provider 类型？
       typec = "Clash-Provider"
       type = (typeQ == "unsupported" || typeQ =="filter")? "Rule":"wrong-field";
@@ -652,10 +655,7 @@ function Type_Check(subs) {
     } else if (QXProfile.every(ProfileCheck)) {
       typec = "profile"
       type = "profile"  //默认配置类型
-    } else if (subi.indexOf("sub://") == 0) { // sub:// 类型
-      typec = "sub-http"
-      type = "sub-http"
-    } else if (/\.js/.test(link0)) { // xjb添加js脚本的行为
+    }else if (/\.js/.test(link0)) { // xjb添加js脚本的行为
       $notify("⚠️ 你导入的链接内容为 JS 脚本","🚥 脚本内未有重写规则，无法解析使用", " 请⚠️不要⚠️跑来解析器🤖️反馈 \n"+link0)
       type = "JS-0"
     } //else if (typeQ == "URI")
@@ -1509,7 +1509,7 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
             const NodeCheck1 = (item) => listi.toLowerCase().indexOf(item) == 0;
             try {
               if (Pdbg) {$notify(i, type, list0[i])}
-                if (type == "vmess" && (list0[i].indexOf("remark=") == -1 && list0[i].indexOf("remarks=") == -1)) {
+                if (type == "vmess" && (list0[i].indexOf("remark=") == -1 && list0[i].indexOf("remarks=") == -1) && !/(obfs|alterId)\=/.test(list0[i])) {
                     var bnode = Base64.decode(list0[i].split("vmess://")[1])
                     if (bnode.indexOf("over-tls=") == -1) { //v2rayN
                         node = V2QX(list0[i], Pudp, Ptfo, Pcert0, PTls13)
@@ -1517,7 +1517,7 @@ function Subs2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
                         node = VQ2QX(list0[i], Pudp, Ptfo, Pcert0, PTls13)
                     }
                   node = tag0 != "" ? URI_TAG(node, tag0) : node
-                } else if (type == "vmess" && ( list0[i].indexOf("remark=") != -1 || list0[i].indexOf("remarks=") != -1)) { //shadowrocket 类型
+                } else if (type == "vmess" && ( list0[i].indexOf("remark=") != -1 || list0[i].indexOf("remarks=") != -1 || /(obfs|alterId)\=/.test(list0[i]))) { //shadowrocket 类型
                     node = VR2QX(list0[i], Pudp, Ptfo, Pcert0, PTls13)
                     node = tag0 != "" ? URI_TAG(node, tag0) : node
                 } else if (type == "socks" && list0[i].indexOf("remarks=") != -1) { //shadowrocket socks5 类型
@@ -1731,7 +1731,7 @@ function VR2QX(subs, Pudp, Ptfo, Pcert0, PTls13) {
   var server = String(Base64.decode(subs.replace("vmess://", "").split("?remark")[0].split("&remark")[0].split("?")[0]).trim()).split("\u0000")[0]
   var node = ""
   var ip = "vmess=" + server.split("@")[1] + ", " + "method=aes-128-gcm, " + "password=" + server.split("@")[0].split(":")[1] + ", "
-  var tag = "tag=" + decodeURIComponent(subs.split(/remarks*=/)[1].split("&")[0])
+  var tag = /remarks*=/.test(subs)? "tag=" + decodeURIComponent(subs.split(/remarks*=/)[1].split("&")[0]) : "tag="+server.split("@")[1] //部分无节点名的情况
   var tfo = subs.indexOf("tfo=1") != -1 ? "fast-open=true, " : "fast-open=false, "
   var udp = Pudp == 1 ? "udp-relay=false, " : "udp-relay=false, ";
   var pdrop = 0
@@ -2483,8 +2483,8 @@ function get_emoji(emojip, sname) {
     "🇲🇺": ["毛里求斯", "Mauritius"],
     "🇵🇷": ["波多黎各", "PR", "Puerto Rico"],
     "🇬🇹": ["危地马拉", " GT "],
-    "🇭🇰": ["HK", "Hongkong", "Hong Kong", "HongKong", "HONG KONG","香港", "深港", "沪港", "四川", "HKT", "HKBN", "HGC", "WTT", "CMI", "穗港", "京港", "港"],
-    "🇨🇳": ["CN", "China", "回国", "中国","湖北", "江苏", "北京", "上海", "广东", "深圳", "杭州", "徐州", "青岛", "宁波", "镇江", "back"],
+    "🇭🇰": ["HK", "Hongkong", "Hong Kong", "HongKong", "HONG KONG","香港", "深港", "沪港", "呼港", "HKT", "HKBN", "HGC", "WTT", "CMI", "穗港", "京港", "港"],
+    "🇨🇳": ["CN", "China", "回国", "中国","中國", "江苏", "北京", "上海", "广州", "深圳", "杭州", "徐州", "青岛", "宁波", "镇江", "back"],
     "🇱🇧": ["黎巴嫩","LB", "Lebanon"],
     "🇧🇳": ["文莱","BRN","Negara Brunei Darussalam"],
     "🌏": ["亚洲","Asia"]
@@ -2504,7 +2504,7 @@ function get_emoji(emojip, sname) {
             }
         }
     }
-    if (flag == 0) { return ["🏴‍☠️ " + sname.replace(/[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g, "").trim(), "🏴‍☠️"] }
+    if (flag == 0) { return ["🇨🇳 " + sname.replace(/[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/g, "").trim(), "🇨🇳"] }
 }
 
 //emoji 处理
@@ -2759,8 +2759,13 @@ function YAMLFix(cnt){
     cnt = cnt.replace(/{\s*name: /g,"{name: \"").replace(/, server:/g,"\", server:")
     cnt = cnt.replace(/{|}/g,"").replace(/,/g,"\n   ")
   }
-  cnt = cnt.replace(/  -\s*\n.*name/g,"  - name").replace(/\$|\`/g,"").split("proxy-providers:")[0].split("proxy-groups:")[0].replace(/\"(name|type|server|port|cipher|password|)(\"*)/g,"$1")
-  // console.log("part-fix:\n"+cnt.split("proxies:")[1])
+  cnt = cnt.replace(/\n\s*\-\s*\n.*name/g,"\n  - name").replace(/\$|\`/g,"").split("proxy-providers:")[0].split("proxy-groups:")[0].replace(/\"(name|type|server|port|cipher|password)(\"*)/g,"$1")
+    if(Pdbg == 1) {
+  $notify("part-fix0:","","part-fix0:\nproxies:\n"+cnt.split("proxies:")[1])}
+  // 2023-03-23  👇修正部分类型
+  cnt = cnt.replace(/\n\s{2}([a-zA-Z]+.*\:)/g,"\n    $1")
+  if(Pdbg == 1) {
+  $notify("part-fix1:","","part-fix1:\nproxies:\n"+cnt.split("proxies:")[1])}
   // cnt = cnt.indexOf("proxies:") == -1? "proxies:\n" + cnt :"proxies:"+cnt.split("proxies:")[1]
   cnt = cnt.replace(/name\:(.*?)\:(.*?)\n/gmi,"name:$1冒号$2\n").replace(/\s{6}Host\:/g,"      Host:")//.replace(/\{\s*(Host\:.*)\}/gmi,"$1") //罕见bug情况 修复
   items=cnt.split("\n").map(yamlcheck)
@@ -2776,6 +2781,8 @@ function YAMLFix(cnt){
   //console.log("part-fix:\n"+cnt.split("proxies:")[1])
   cnt = cnt.indexOf("proxies:") == -1? "proxies:\n" + cnt :"proxies:"+cnt.split("proxies:")[1]
   console.log("after-fix\n"+cnt)
+  if(Pdbg == 1) {
+  $notify("After-Fix","this is", "After-fix:\n"+cnt)}
   //$notify("After-Fix","this is", cnt)
 
   return cnt
