@@ -6,8 +6,8 @@
  *  ███████║╚██████╔╝██████╔╝      ███████║   ██║   ╚██████╔╝██║  ██║███████╗
  *  ╚══════╝ ╚═════╝ ╚═════╝       ╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝
  * Advanced Subscription Manager for QX, Loon, Surge, Stash and ShadowRocket!
- * @updated: 2022/9/1 00:46:41
- * @version: 2.13.2
+ * @updated: 2023/9/1 00:46:41
+ * @version: 2.14.34
  * @author: Peng-YM
  * @github: https://github.com/Peng-YM/Sub-Store
  * @documentation: https://www.notion.so/Sub-Store-6259586994d34c11a4ced5c406264b46
