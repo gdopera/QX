@@ -1,9 +1,10 @@
 # > 局域网
 host-suffix,local
-HOST-KEYWORD,apple
+host-keyword,apple
 ip-cidr,0.0.0.0/32
 ip-cidr,10.0.0.0/8
 ip-cidr,127.0.0.0/8
 ip-cidr,172.16.0.0/12
 ip-cidr,192.168.0.0/16
 ip-cidr,224.0.0.0/24
+host,adv-test.dvr163.com
