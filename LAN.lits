@@ -1,6 +1,7 @@
 # > 局域网
 host-suffix,local
 host-keyword,apple
+host-keyword,icloud
 ip-cidr,0.0.0.0/32
 ip-cidr,10.0.0.0/8
 ip-cidr,127.0.0.0/8
