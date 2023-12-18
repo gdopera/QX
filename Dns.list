@@ -1,11 +1,51 @@
-[dns]
-no-ipv6
-server=223.5.5.5
-server=180.184.1.1
-server=119.29.29.29
-address=/mtalk.google.com/108.177.125.188
-server=/dl.google.com/119.29.29.29
-server=/dl.l.google.com/119.29.29.29
-server=/update.googleapis.com/119.29.29.29
-server=/*.dl.playstation.net/119.29.29.29
-circumvent-ipv4-answer = 127.0.0.1, 0.0.0.0, 182.43.124.6, 39.102.194.95, 36.135.17.248, 36.135.82.110, 39.105.1.17, 39.130.181.72, 39.130.181.73, 39.173.74.185, 47.92.198.202, 111.22.226.1, 111.28.0.32, 111.31.192.110, 111.44.246.131, 111.56.127.216, 111.63.132.170, 112.15.232.43, 112.17.14.211, 112.54.50.50, 117.156.25.11, 117.187.10.42, 120.202.17.103, 120.209.204.204, 120.222.19.204, 121.4.135.105,183.203.36.19, 183.207.72.18, 183.213.92.2, 183.220.145.129, 183.252.183.9, 211.137.133.69, 211.138.218.190, 211.139.25.61, 211.139.145.129, 218.201.25.129, 218.201.25.130, 218.203.122.98, 221.130.39.3
+********************************
+
+[mitm]
+hostname = api.aliyundrive.com,member.aliyundrive.com,api.alipan.com,member.alipan.com,auth.alipan.com,pan.baidu.com
+
+[rewrite_local]
+https:\/\/api\.(aliyundrive|alipan)\.com\/apps\/v1\/users\/apps\/welcome url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/v2\/databox\/get_personal_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/vip\/info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/member\.(aliyundrive|alipan)\.com\/v1\/users\/tools url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1\/users\/me\/vip\/info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.1\/users\/me\/vip\/info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/apps\/v1\/users\/home\/widgets url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/apps\/v2\/users\/home\/widgets url reject-dict
+https://api.aliyundrive.com/apps/v1/users/home/news url reject-200
+https:\/\/api\.(aliyundrive|alipan)\.com\/adrive\/v1\/app\/logos url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/adrive\/v2\/user\/get url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/feature\/list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/business\/v1.0\/users\/feature\/trial url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/v2\/file\/get_video_preview_play_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.(aliyundrive|alipan)\.com\/adrive\/v2\/batch url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_info url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/member\.aliyundrive\.com\/v2\/activity\/sign_in_list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.alipan\.com\/business\/v1.0\/users\/coupon\/detail url reject-200
+https:\/\/member\.alipan\.com\/v1\/users\/onboard_list url reject-200
+https:\/\/member\.alipan\.com\/v1\/users\/me url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+https:\/\/api\.alipan\.com\/adrive\/v1\/timeline\/user\/get url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/alic.js
+ ***************/
+
+[rewrite_local]
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/pan\.baidu\.com\/act\/v2\/membergrow\/my url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/pan\.baidu\.com\/story\/diff url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/pan\.baidu\.com\/dosp\/opconf\/list url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/pan\.baidu\.com\/api\/user\/getinfo url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/pan\.baidu\.com\/act\/api\/activityentry url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/pan\.baidu\.com\/api\/singkil\/bindquery url script-response-body https://raw.githubusercontent.com/xiaomaoJT/QxScript/main/rewrite/boxJS/source/bdc.js
+https:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+\.(jpg|png|jpeg|gif)$ url reject-200
+https:\/\/pan\.baidu\.com\/imbox\/msg\/pull url reject-200
+https:\/\/pan\.baidu\.com\/api\/version\/getlatestversion url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/product url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/level url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/activity url reject-200
+https:\/\/pan\.baidu\.com\/act\/api\/conf url reject-200
+https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list url reject-200
+https:\/\/pan\.baidu\.com\/api\/getconfig url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/proxy\/guide url reject-200
+https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist url reject-200
+https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/xpan\/smartprogram url reject-200
+https:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer url reject-200
+ ***************/
