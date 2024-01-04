@@ -2,8 +2,6 @@
 host-keyword,cn
 host-keyword,apple
 host-keyword,dvr163
-host-suffix,dns.alidns.com
-host-suffix,sm2.doh.pub
 host-suffix,local
 ip-cidr,192.168.0.0/16
 ip-cidr,10.0.0.0/8
