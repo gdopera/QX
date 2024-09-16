@@ -1,11 +1,10 @@
 # > 局域网
-host-keyword,apple，全球直连
-host,openapi.dvr163.com,REJECT
-host-suffix,local，全球直连
-ip-cidr,192.168.0.0/16，全球直连
-ip-cidr,10.0.0.0/8，全球直连
-ip-cidr,172.16.0.0/12，全球直连
-ip-cidr,127.0.0.0/8，全球直连
-ip-cidr,100.64.0.0/10，全球直连
-ip-cidr,224.0.0.0/4，全球直连
-ip6-cidr,fe80::/10，全球直连
+host-keyword,apple
+host-suffix,local
+ip-cidr,192.168.0.0/16
+ip-cidr,10.0.0.0/8
+ip-cidr,172.16.0.0/12
+ip-cidr,127.0.0.0/8
+ip-cidr,100.64.0.0/10
+ip-cidr,224.0.0.0/4
+ip6-cidr,fe80::/10
